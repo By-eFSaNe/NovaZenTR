@@ -1,27 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { 
   Phone, 
   MessageSquare, 
   Download, 
-  Building2, 
-  Layers, 
-  Plane, 
-  MapPin, 
-  Sparkles, 
   ArrowRight, 
-  ShieldCheck, 
-  Clock, 
-  Navigation
+  Clock 
 } from 'lucide-react';
 import { CONTACT_INFO } from '../data/engineeringData';
-import { Card3D } from './ui/card-3d';
 import { BorderBeam } from './ui/border-beam';
 import { Spotlight } from './ui/spotlight';
 
 export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShowFullSite }) => {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
-  const [coords, setCoords] = useState({ x: 412580.45, y: 4521400.12, z: 845.30 });
 
   // Download digital vCard
   const downloadVCard = () => {
@@ -204,12 +195,6 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
 
       mouseX = normX * 0.35;
       mouseY = normY * 0.25;
-
-      setCoords({
-        x: 412580.45 + normX * 85.2,
-        y: 4521400.12 + normY * 92.4,
-        z: 845.30 + Math.abs(normX * normY) * 14.2,
-      });
     };
 
     window.addEventListener('mousemove', onPointerMove);
@@ -253,11 +238,11 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#06080e] text-slate-100 flex flex-col relative overflow-x-hidden selection:bg-nova-600 selection:text-white">
+    <div className="min-h-screen bg-[#06080e] text-slate-100 flex flex-col justify-between relative overflow-x-hidden selection:bg-nova-600 selection:text-white">
       {/* 3D Background Canvas */}
       <div 
         ref={canvasContainerRef} 
-        className="fixed inset-0 pointer-events-none z-0 opacity-45 sm:opacity-55"
+        className="fixed inset-0 pointer-events-none z-0 opacity-45 sm:opacity-60"
       />
 
       {/* Cyber Grid Texture Overlay */}
@@ -267,7 +252,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="rgba(0, 102, 255, 0.3)" />
 
       {/* Top Floating Navigation / Brand Header */}
-      <header className="relative z-20 pt-6 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between">
+      <header className="relative z-20 pt-6 sm:pt-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-3.5">
           <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/90 p-1.5 flex items-center justify-center overflow-hidden shadow-xl">
@@ -318,24 +303,24 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
       </header>
 
       {/* Main Content Hero */}
-      <main className="flex-1 relative z-10 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-12 sm:py-20 max-w-6xl mx-auto w-full">
+      <main className="flex-1 relative z-10 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-10 sm:py-16 max-w-4xl mx-auto w-full my-auto">
         {/* Status Pill */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-950/90 border border-nova-500/50 text-xs font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-8">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-950/90 border border-nova-500/50 text-xs font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-6 sm:mb-8">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
           <span className="font-bold tracking-wider">SİSTEM GÜNCELLEMESİ • ÇOK YAKINDA</span>
-          <span className="text-slate-600">|</span>
-          <span className="text-slate-300">TKGM 3B-SYM ALTYAPISI</span>
+          <span className="text-slate-600 hidden sm:inline">|</span>
+          <span className="text-slate-300 hidden sm:inline">TKGM 3B-SYM ALTYAPISI</span>
         </div>
 
         {/* Main Headline */}
-        <div className="text-center max-w-4xl mx-auto space-y-6">
+        <div className="text-center max-w-3xl mx-auto space-y-5">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
             Harita Mühendisliği & 3B Modellemede <br />
             <span className="metallic-blue-text">Yeni Yüzümüzle</span>{' '}
             <span className="metallic-text">Çok Yakında Hizmetinizdeyiz.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
             <strong>Nova Zen Mühendislik</strong> olarak; <strong>TKGM 3 Boyutlu Sayısal Yapı Modeli (3B-SYM)</strong>, 
             <strong> BIM seviyesinde bina çizimi</strong>, <strong>İHA fotogrametrisi</strong> ve <strong>karasal lazer tarama (LIDAR)</strong> teknolojilerimizle 
             dijital platformumuzu yeniliyoruz.
@@ -343,7 +328,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
         </div>
 
         {/* Active Engineering Services Notification Card */}
-        <div className="w-full max-w-3xl mt-10 p-5 sm:p-7 rounded-3xl bg-slate-950/85 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
+        <div className="w-full max-w-2xl mt-8 sm:mt-10 p-5 sm:p-7 rounded-3xl bg-slate-950/85 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
           <BorderBeam colorFrom="#00d2ff" colorTo="#0066ff" />
           
           <div className="flex items-start gap-4">
@@ -370,7 +355,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
               href={CONTACT_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg transition-all"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg transition-all text-center"
             >
               <MessageSquare className="w-4 h-4" />
               <span>WhatsApp'tan Yazın</span>
@@ -379,7 +364,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
 
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-xs font-mono font-semibold transition-colors"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-xs font-mono font-semibold transition-colors text-center"
             >
               <Phone className="w-4 h-4 text-cyan-400" />
               <span>{CONTACT_INFO.phoneFormatted}</span>
@@ -388,160 +373,17 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
             <button
               type="button"
               onClick={downloadVCard}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-xs font-mono font-semibold transition-colors"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-xs font-mono font-semibold transition-colors text-center"
             >
               <Download className="w-4 h-4" />
               <span>vCard Rehbere Kaydet</span>
             </button>
           </div>
         </div>
-
-        {/* 3D Tilt Business Card & Profile Section */}
-        <div className="w-full max-w-4xl mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left: 3D Interactive Card (5 Cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-sm">
-              <Card3D className="border-cyan-500/40 shadow-2xl shadow-blue-950/60">
-                <div className="p-1 bg-gradient-to-br from-cyan-500/40 via-nova-600/30 to-slate-800 rounded-[28px]">
-                  <div className="rounded-[26px] overflow-hidden bg-slate-950">
-                    <img
-                      src="/assets/business_card.png"
-                      alt="Mustafa Kale Harita Mühendisi Kartvizit"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                </div>
-              </Card3D>
-            </div>
-            <span className="text-[11px] font-mono text-slate-500 mt-2">
-              (Kartviziti 3B incelemek için fareyi üzerinde gezdirin)
-            </span>
-          </div>
-
-          {/* Right: Engineer Credentials & Direct Details (7 Cols) */}
-          <div className="lg:col-span-7 space-y-4 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-nova-950 border border-nova-700/40 text-[11px] font-mono text-cyan-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-              <span>HKMO Tescilli Harita Mühendisi</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Mustafa Kale
-            </h2>
-            <p className="text-sm font-mono text-cyan-400">
-              Harita Mühendisi / 3B Modelleme & Lidar Uzmanı
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
-              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <span className="text-slate-500 block text-[10px]">TELEFON / WHATSAPP</span>
-                <a href={`tel:${CONTACT_INFO.phone}`} className="text-white hover:text-cyan-400 font-bold mt-0.5 block">
-                  {CONTACT_INFO.phoneFormatted}
-                </a>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <span className="text-slate-500 block text-[10px]">KURUMSAL E-POSTA</span>
-                <a href={`mailto:${CONTACT_INFO.email}`} className="text-white hover:text-cyan-400 font-bold mt-0.5 block">
-                  {CONTACT_INFO.email}
-                </a>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <span className="text-slate-500 block text-[10px]">RESMİ DOMAIN</span>
-                <span className="text-cyan-300 font-bold mt-0.5 block">
-                  www.novazentr.com
-                </span>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <span className="text-slate-500 block text-[10px]">HİZMET ALANI</span>
-                <span className="text-slate-300 font-bold mt-0.5 block">
-                  Türkiye Geneli Proje & Saha
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Specialized Services Badges */}
-        <div className="w-full max-w-4xl mt-14">
-          <div className="text-center mb-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
-              Uzmanlık Alanlarımız & Hizmet Kapsamı
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: 'TKGM 3B Sayısal Yapı Modeli (3B-SYM)',
-                desc: 'Yapı ruhsatı ve kat irtifakı için CityGML ve IFC standartlarında resmi tescil modelleri.',
-                icon: Building2,
-                color: 'text-cyan-400',
-              },
-              {
-                title: 'BIM Seviyesinde 3B Bina Çizimi',
-                desc: 'LOD 200 - LOD 350 standardında mimari, statik ve as-built 3 boyutlu dijital ikiz.',
-                icon: Layers,
-                color: 'text-blue-400',
-              },
-              {
-                title: 'İHA (Drone) & Fotogrametrik Harita',
-                desc: 'RTK/PPK ile santimetre altı True-Ortofoto, halihazır ve sayısal yükseklik modelleri (DEM).',
-                icon: Plane,
-                color: 'text-emerald-400',
-              },
-              {
-                title: '3D Lazer Tarama & Nokta Bulutu (LIDAR)',
-                desc: 'Tarihi yapılar, cephe rölöveleri ve endüstriyel tesisler için milimetrik nokta bulutu.',
-                icon: Sparkles,
-                color: 'text-amber-400',
-              },
-              {
-                title: 'İmar, İfraz, Tevhid & Kadastro',
-                desc: '3194 Sayılı Kanun 18. Madde, parselasyon, sınır tespiti ve aplikasyon tescil dosyaları.',
-                icon: MapPin,
-                color: 'text-rose-400',
-              },
-              {
-                title: 'Kübaj & Hassas Deformasyon Takibi',
-                desc: 'Hafriyat-dolgu hacim hesapları, iki yüzey fark modeli ve mikro oturma analizleri.',
-                icon: ShieldCheck,
-                color: 'text-violet-400',
-              },
-            ].map((srv, idx) => {
-              const Icon = srv.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-4.5 rounded-2xl bg-slate-950/70 border border-slate-800/80 text-left hover:border-cyan-500/40 transition-colors"
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <Icon className={`w-4 h-4 ${srv.color}`} />
-                    <h3 className="text-xs font-bold text-white font-mono">{srv.title}</h3>
-                  </div>
-                  <p className="text-[11px] text-slate-400 leading-relaxed font-sans">{srv.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Real-Time Geodetic Coordinates HUD */}
-        <div className="mt-14 inline-flex items-center gap-4 px-5 py-2 rounded-2xl bg-slate-950/80 border border-slate-800 font-mono text-xs text-slate-400 backdrop-blur-md">
-          <div className="flex items-center gap-1.5 text-cyan-400">
-            <Navigation className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '9s' }} />
-            <span>ITRF96 TM 30°:</span>
-          </div>
-          <div>Y: <strong className="text-white">{coords.x.toFixed(2)}</strong></div>
-          <div>X: <strong className="text-white">{coords.y.toFixed(2)}</strong></div>
-          <div>Z: <strong className="text-emerald-400">+{coords.z.toFixed(2)} m</strong></div>
-        </div>
       </main>
 
       {/* Footer */}
-      <footer className="relative z-20 py-8 px-4 border-t border-slate-900 bg-[#03050a]/90 text-center text-xs font-mono text-slate-500">
+      <footer className="relative z-20 py-6 px-4 border-t border-slate-900 bg-[#03050a]/90 text-center text-xs font-mono text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             © {new Date().getFullYear()} Nova Zen Mühendislik • Mustafa Kale. Tüm Hakları Saklıdır.
