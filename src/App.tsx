@@ -30,7 +30,7 @@ export const App: React.FC = () => {
 
   // Default: Show 3D Coming Soon / Maintenance page with all contact info
   if (!showFullSite) {
-    return <ComingSoon3D onShowFullSite={() => setShowFullSite(true)} />;
+    return <ComingSoon3D />;
   }
 
   // Full site preview mode

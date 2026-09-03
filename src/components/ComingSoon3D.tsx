@@ -11,7 +11,7 @@ import { CONTACT_INFO } from '../data/engineeringData';
 import { BorderBeam } from './ui/border-beam';
 import { Spotlight } from './ui/spotlight';
 
-export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShowFullSite }) => {
+export const ComingSoon3D: React.FC = () => {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
 
   // Download digital vCard
@@ -391,18 +391,6 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
           
           <div className="flex items-center gap-3 sm:gap-4">
             <a href="https://novazentr.com" className="hover:text-slate-300">www.novazentr.com</a>
-            {onShowFullSite && (
-              <>
-                <span>•</span>
-                <button
-                  type="button"
-                  onClick={onShowFullSite}
-                  className="text-cyan-500 hover:text-cyan-300 underline text-[11px]"
-                >
-                  Tam Site Önizlemesi
-                </button>
-              </>
-            )}
           </div>
         </div>
       </footer>
