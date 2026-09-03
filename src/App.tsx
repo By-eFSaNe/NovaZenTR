@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { ComingSoon3D } from './components/ComingSoon3D';
 import { Navbar } from './components/Navbar';
 import { Hero3D } from './components/Hero3D';
 import { Services } from './components/Services';
@@ -14,16 +15,52 @@ import { FloatingContact } from './components/FloatingContact';
 import { Spotlight } from './components/ui/spotlight';
 import { ShimmerButton } from './components/ui/shimmer-button';
 import { STATS } from './data/engineeringData';
-import { Box, ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
+import { Box, ArrowRight, ChevronRight, Sparkles, EyeOff } from 'lucide-react';
 
 export const App: React.FC = () => {
+  const [showFullSite, setShowFullSite] = useState(false);
+
+  useEffect(() => {
+    // Check if URL query contains preview=full
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('preview') === 'full') {
+      setShowFullSite(true);
+    }
+  }, []);
+
+  // Default: Show 3D Coming Soon / Maintenance page with all contact info
+  if (!showFullSite) {
+    return <ComingSoon3D onShowFullSite={() => setShowFullSite(true)} />;
+  }
+
+  // Full site preview mode
   return (
     <div className="min-h-screen bg-[#06080e] text-slate-100 flex flex-col selection:bg-nova-600 selection:text-white relative overflow-x-hidden">
+      {/* Top Preview Mode Banner */}
+      <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-slate-950 font-mono font-bold text-xs py-2 px-4 flex items-center justify-between z-50 fixed top-0 left-0 right-0 shadow-lg">
+        <div className="flex items-center gap-2 max-w-7xl mx-auto w-full justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-slate-950 animate-ping" />
+            <span>TAM SİTE ÖNİZLEME MODU (Ziyaretçiler varsayılan olarak Yakında sayfasını görmektedir)</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowFullSite(false)}
+            className="flex items-center gap-1 px-3 py-1 rounded-lg bg-slate-950 text-amber-300 hover:text-white text-xs font-semibold"
+          >
+            <EyeOff className="w-3.5 h-3.5" />
+            <span>Yakında Sayfasına Dön</span>
+          </button>
+        </div>
+      </div>
+
       {/* Background Cyber Grid */}
       <div className="fixed inset-0 bg-grid-pattern opacity-35 pointer-events-none z-0" />
 
-      {/* Floating Header */}
-      <Navbar />
+      {/* Floating Header (spaced down due to preview banner) */}
+      <div className="pt-8">
+        <Navbar />
+      </div>
 
       {/* Main Content */}
       <main className="flex-1 relative z-10">
@@ -50,7 +87,7 @@ export const App: React.FC = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-                BIM seviyesinde <strong>3B bina modelleme</strong>, <strong>İHA drone fotogrametrisi</strong>, <strong>LIDAR nokta bulutu</strong> ve resmi imar-kadastro projelerinde milimetrik hassasiyet sunuyoruz.
+                BIM seviyesinde <strong>3B bina modelleme (3B-SYM)</strong>, <strong>İHA drone fotogrametrisi</strong>, <strong>LIDAR nokta bulutu</strong> ve resmi imar-kadastro projelerinde milimetrik hassasiyet sunuyoruz.
               </p>
 
               {/* Action Buttons */}
