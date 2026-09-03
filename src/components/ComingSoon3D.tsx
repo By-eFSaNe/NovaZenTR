@@ -39,7 +39,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
       0.1,
       100
     );
-    camera.position.set(12, 9, 14);
+    camera.position.set(12, 8, 14);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -238,7 +238,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#06080e] text-slate-100 flex flex-col justify-between relative overflow-x-hidden selection:bg-nova-600 selection:text-white">
+    <div className="h-screen w-screen max-h-screen overflow-y-auto sm:overflow-hidden bg-[#06080e] text-slate-100 flex flex-col justify-between relative selection:bg-nova-600 selection:text-white">
       {/* 3D Background Canvas */}
       <div 
         ref={canvasContainerRef} 
@@ -252,10 +252,10 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="rgba(0, 102, 255, 0.3)" />
 
       {/* Top Floating Navigation / Brand Header */}
-      <header className="relative z-20 pt-6 sm:pt-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between">
+      <header className="relative z-20 pt-4 sm:pt-6 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between shrink-0">
         {/* Brand */}
-        <div className="flex items-center gap-3.5">
-          <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/90 p-1.5 flex items-center justify-center overflow-hidden shadow-xl">
+        <div className="flex items-center gap-3">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/90 p-1.5 flex items-center justify-center overflow-hidden shadow-xl">
             <img
               src="/assets/logo.png"
               alt="Nova Zen Mühendislik Logo"
@@ -266,7 +266,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
 
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-wider text-white">
+              <span className="font-display font-extrabold text-lg sm:text-xl tracking-wider text-white">
                 NOVA<span className="text-cyan-400">ZEN</span>
               </span>
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-nova-900/90 text-cyan-300 border border-nova-500/40">
@@ -274,17 +274,17 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
                 MÜHENDİSLİK
               </span>
             </div>
-            <span className="text-[10px] sm:text-[11px] font-mono text-slate-400 tracking-widest uppercase">
+            <span className="text-[10px] font-mono text-slate-400 tracking-widest uppercase">
               Harita & 3B Sayısal Yapı Modelleme
             </span>
           </div>
         </div>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href={`tel:${CONTACT_INFO.phone}`}
-            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 text-xs font-mono text-slate-200 transition-all hover:border-cyan-400 shadow-md"
+            className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 text-xs font-mono text-slate-200 transition-all hover:border-cyan-400 shadow-md"
           >
             <Phone className="w-3.5 h-3.5 text-cyan-400" />
             <span>{CONTACT_INFO.phoneFormatted}</span>
@@ -294,7 +294,7 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
             href={CONTACT_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white font-bold text-xs shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white font-bold text-xs shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>WhatsApp İletişim</span>
@@ -302,25 +302,25 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
         </div>
       </header>
 
-      {/* Main Content Hero */}
-      <main className="flex-1 relative z-10 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-10 sm:py-16 max-w-4xl mx-auto w-full my-auto">
+      {/* Main Content Hero (Strictly Centered within remaining viewport height) */}
+      <main className="flex-1 relative z-10 flex flex-col justify-center items-center px-4 sm:px-6 max-w-4xl mx-auto w-full py-4 sm:py-6">
         {/* Status Pill */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-950/90 border border-nova-500/50 text-xs font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-6 sm:mb-8">
-          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-950/90 border border-nova-500/50 text-[11px] sm:text-xs font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-4 sm:mb-5">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
           <span className="font-bold tracking-wider">SİSTEM GÜNCELLEMESİ • ÇOK YAKINDA</span>
           <span className="text-slate-600 hidden sm:inline">|</span>
           <span className="text-slate-300 hidden sm:inline">TKGM 3B-SYM ALTYAPISI</span>
         </div>
 
         {/* Main Headline */}
-        <div className="text-center max-w-3xl mx-auto space-y-5">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.18]">
             Harita Mühendisliği & 3B Modellemede <br />
             <span className="metallic-blue-text">Yeni Yüzümüzle</span>{' '}
             <span className="metallic-text">Çok Yakında Hizmetinizdeyiz.</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
             <strong>Nova Zen Mühendislik</strong> olarak; <strong>TKGM 3 Boyutlu Sayısal Yapı Modeli (3B-SYM)</strong>, 
             <strong> BIM seviyesinde bina çizimi</strong>, <strong>İHA fotogrametrisi</strong> ve <strong>karasal lazer tarama (LIDAR)</strong> teknolojilerimizle 
             dijital platformumuzu yeniliyoruz.
@@ -328,20 +328,20 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
         </div>
 
         {/* Active Engineering Services Notification Card */}
-        <div className="w-full max-w-2xl mt-8 sm:mt-10 p-5 sm:p-7 rounded-3xl bg-slate-950/85 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
+        <div className="w-full max-w-2xl mt-5 sm:mt-6 p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-slate-950/90 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
           <BorderBeam colorFrom="#00d2ff" colorTo="#0066ff" />
           
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-2xl bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 shrink-0 hidden sm:block">
-              <Clock className="w-6 h-6 animate-pulse" />
+          <div className="flex items-start gap-3.5">
+            <div className="p-2.5 rounded-xl bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 shrink-0 hidden sm:block">
+              <Clock className="w-5 h-5 animate-pulse" />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
                   Mühendislik & Saha Faaliyetlerimiz Kesintisiz Devam Etmektedir
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Yapı ruhsatı ve kat irtifakı için <strong>3B Sayısal Yapı Modeli (3B-SYM / CityGML / IFC)</strong>, 
                 halihazır harita, kübaj hesapları ve kadastral resmi tescil projeleriniz için 
                 doğrudan <strong>Harita Mühendisi Mustafa Kale</strong> ile iletişime geçebilirsiniz.
@@ -350,46 +350,46 @@ export const ComingSoon3D: React.FC<{ onShowFullSite?: () => void }> = ({ onShow
           </div>
 
           {/* Action CTAs */}
-          <div className="mt-6 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="mt-4 pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <a
               href={CONTACT_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg transition-all text-center"
+              className="flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg transition-all text-center"
             >
               <MessageSquare className="w-4 h-4" />
               <span>WhatsApp'tan Yazın</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3 h-3" />
             </a>
 
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-xs font-mono font-semibold transition-colors text-center"
+              className="flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-xs font-mono font-semibold transition-colors text-center"
             >
-              <Phone className="w-4 h-4 text-cyan-400" />
+              <Phone className="w-3.5 h-3.5 text-cyan-400" />
               <span>{CONTACT_INFO.phoneFormatted}</span>
             </a>
 
             <button
               type="button"
               onClick={downloadVCard}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-xs font-mono font-semibold transition-colors text-center"
+              className="flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-xs font-mono font-semibold transition-colors text-center"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
               <span>vCard Rehbere Kaydet</span>
             </button>
           </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-20 py-6 px-4 border-t border-slate-900 bg-[#03050a]/90 text-center text-xs font-mono text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Footer (Pinned to bottom, zero overflow) */}
+      <footer className="relative z-20 py-3 sm:py-4 px-4 border-t border-slate-900 bg-[#03050a]/90 text-center text-[11px] sm:text-xs font-mono text-slate-500 shrink-0">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
           <div>
             © {new Date().getFullYear()} Nova Zen Mühendislik • Mustafa Kale. Tüm Hakları Saklıdır.
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <a href="https://novazentr.com" className="hover:text-slate-300">www.novazentr.com</a>
             {onShowFullSite && (
               <>
