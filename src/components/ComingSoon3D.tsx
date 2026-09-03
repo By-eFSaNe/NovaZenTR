@@ -254,8 +254,8 @@ export const ComingSoon3D: React.FC = () => {
       {/* Top Floating Navigation / Brand Header */}
       <header className="relative z-20 pt-3 sm:pt-5 px-4 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between shrink-0">
         {/* Brand */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/90 p-1 sm:p-1.5 flex items-center justify-center overflow-hidden shadow-xl shrink-0">
+        <div className="flex items-center gap-2.5 sm:gap-3.5">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/90 p-1 sm:p-1.5 flex items-center justify-center overflow-hidden shadow-xl shrink-0">
             <img
               src="/assets/logo.png"
               alt="Nova Zen Mühendislik Logo"
@@ -266,27 +266,27 @@ export const ComingSoon3D: React.FC = () => {
 
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="font-display font-extrabold text-base sm:text-xl tracking-wider text-white">
+              <span className="font-display font-extrabold text-lg sm:text-2xl tracking-wider text-white">
                 NOVA<span className="text-cyan-400">ZEN</span>
               </span>
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-mono font-bold bg-nova-900/90 text-cyan-300 border border-nova-500/40">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold bg-nova-900/90 text-cyan-300 border border-nova-500/40">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 MÜHENDİSLİK
               </span>
             </div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 tracking-widest uppercase">
+            <span className="text-[10px] sm:text-xs font-mono text-slate-300 tracking-wider">
               Harita & 3B Sayısal Yapı
             </span>
           </div>
         </div>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={`tel:${CONTACT_INFO.phone}`}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 text-xs font-mono text-slate-200 transition-all hover:border-cyan-400 shadow-md"
+            className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 text-xs sm:text-sm font-mono text-slate-200 transition-all hover:border-cyan-400 shadow-md"
           >
-            <Phone className="w-3.5 h-3.5 text-cyan-400" />
+            <Phone className="w-4 h-4 text-cyan-400" />
             <span>{CONTACT_INFO.phoneFormatted}</span>
           </a>
 
@@ -294,18 +294,18 @@ export const ComingSoon3D: React.FC = () => {
             href={CONTACT_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white font-bold text-[11px] sm:text-xs shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-950/40 hover:brightness-110 transition-all"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <MessageSquare className="w-4 h-4" />
             <span>WhatsApp</span>
           </a>
         </div>
       </header>
 
-      {/* Main Content Hero (Strictly Centered & Sized to never overflow on mobile) */}
+      {/* Main Content Hero (Strictly Centered & Sized to fit comfortably on mobile) */}
       <main className="flex-1 relative z-10 flex flex-col justify-center items-center px-4 sm:px-6 max-w-4xl mx-auto w-full py-2 sm:py-4">
         {/* Status Pill */}
-        <div className="inline-flex items-center gap-2 px-3 py-0.5 sm:py-1 rounded-full bg-slate-950/90 border border-nova-500/50 text-[10px] sm:text-xs font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-2 sm:mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:py-1.5 rounded-full bg-slate-950/90 border border-nova-500/50 text-xs sm:text-sm font-mono text-cyan-300 shadow-2xl backdrop-blur-xl mb-3 sm:mb-4">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
           <span className="font-bold tracking-wider">SİSTEM GÜNCELLEMESİ • ÇOK YAKINDA</span>
           <span className="text-slate-600 hidden sm:inline">|</span>
@@ -313,14 +313,14 @@ export const ComingSoon3D: React.FC = () => {
         </div>
 
         {/* Main Headline */}
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3">
-          <h1 className="text-xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-snug sm:leading-tight">
+        <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3.5">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight sm:leading-tight">
             Harita Mühendisliği & 3B Modellemede <br />
             <span className="metallic-blue-text">Yeni Yüzümüzle</span>{' '}
             <span className="metallic-text">Çok Yakında Hizmetinizdeyiz.</span>
           </h1>
 
-          <p className="text-[11px] sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
+          <p className="text-xs sm:text-base text-slate-200 leading-relaxed max-w-xl mx-auto font-normal">
             <strong>Nova Zen Mühendislik</strong> olarak; <strong>TKGM 3 Boyutlu Sayısal Yapı Modeli (3B-SYM)</strong>, 
             <strong> BIM seviyesinde bina çizimi</strong>, <strong>İHA fotogrametrisi</strong> ve <strong>karasal lazer tarama (LIDAR)</strong> teknolojilerimizle 
             dijital platformumuzu yeniliyoruz.
@@ -328,20 +328,20 @@ export const ComingSoon3D: React.FC = () => {
         </div>
 
         {/* Active Engineering Services Notification Card */}
-        <div className="w-full max-w-2xl mt-3 sm:mt-5 p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-slate-950/90 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
+        <div className="w-full max-w-2xl mt-4 sm:mt-5 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-950/90 border border-nova-500/40 backdrop-blur-2xl shadow-2xl relative overflow-hidden text-left">
           <BorderBeam colorFrom="#00d2ff" colorTo="#0066ff" />
           
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-3 sm:gap-3.5">
             <div className="p-2 sm:p-2.5 rounded-xl bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 shrink-0 hidden sm:block">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
+              <Clock className="w-5 h-5 animate-pulse" />
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 sm:space-y-1.5">
               <div className="flex items-center gap-1.5">
-                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+                <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-cyan-400">
                   Mühendislik & Saha Faaliyetlerimiz Kesintisiz Devam Etmektedir
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Yapı ruhsatı ve kat irtifakı için <strong>3B Sayısal Yapı Modeli (3B-SYM / CityGML / IFC)</strong>, 
                 halihazır harita, kübaj hesapları ve kadastral resmi tescil projeleriniz için 
                 doğrudan <strong>Harita Mühendisi Mustafa Kale</strong> ile iletişime geçebilirsiniz.
@@ -349,24 +349,24 @@ export const ComingSoon3D: React.FC = () => {
             </div>
           </div>
 
-          {/* Action CTAs (Horizontal 3-column grid on all screens, compact and elegant) */}
-          <div className="mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-1.5 sm:gap-2.5">
+          {/* Action CTAs */}
+          <div className="mt-3.5 pt-3.5 sm:mt-4 sm:pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2 sm:gap-3">
             <a
               href={CONTACT_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-[10px] sm:text-xs shadow-lg transition-all text-center"
+              className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-lg transition-all text-center"
             >
-              <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+              <MessageSquare className="w-4 h-4 shrink-0" />
               <span className="truncate">WhatsApp</span>
-              <ArrowRight className="w-3 h-3 hidden sm:inline shrink-0" />
+              <ArrowRight className="w-3.5 h-3.5 hidden sm:inline shrink-0" />
             </a>
 
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className="flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-[10px] sm:text-xs font-mono font-semibold transition-colors text-center"
+              className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200 text-xs sm:text-sm font-mono font-semibold transition-colors text-center"
             >
-              <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+              <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
               <span className="hidden sm:inline">{CONTACT_INFO.phoneFormatted}</span>
               <span className="sm:hidden">Hemen Ara</span>
             </a>
@@ -374,9 +374,9 @@ export const ComingSoon3D: React.FC = () => {
             <button
               type="button"
               onClick={downloadVCard}
-              className="flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-[10px] sm:text-xs font-mono font-semibold transition-colors text-center"
+              className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl bg-slate-900 border border-cyan-500/50 hover:bg-cyan-950/40 text-cyan-300 text-xs sm:text-sm font-mono font-semibold transition-colors text-center"
             >
-              <Download className="w-3.5 h-3.5 shrink-0" />
+              <Download className="w-4 h-4 shrink-0" />
               <span className="truncate">vCard İndir</span>
             </button>
           </div>
@@ -384,14 +384,14 @@ export const ComingSoon3D: React.FC = () => {
       </main>
 
       {/* Footer (Pinned to absolute bottom, permanently locked with zero overflow) */}
-      <footer className="relative z-20 py-2 sm:py-3 px-4 border-t border-slate-900/90 bg-[#03050a]/95 text-center text-[10px] sm:text-xs font-mono text-slate-500 shrink-0">
+      <footer className="relative z-20 py-2.5 sm:py-3.5 px-4 border-t border-slate-900/90 bg-[#03050a]/95 text-center text-xs font-mono text-slate-400 shrink-0">
         <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-2">
           <div className="truncate">
             © {new Date().getFullYear()} Nova Zen Mühendislik • Mustafa Kale
           </div>
           
           <div className="shrink-0">
-            <a href="https://novazentr.com" className="hover:text-slate-300">www.novazentr.com</a>
+            <a href="https://novazentr.com" className="hover:text-slate-200">www.novazentr.com</a>
           </div>
         </div>
       </footer>
